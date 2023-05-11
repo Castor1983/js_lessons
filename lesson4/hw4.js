@@ -68,9 +68,10 @@ let createListByArr = function (arr) {
     }
     document.write('</ul>');
 }
-createListByArr([1, 2, 3, 4, 4, 5, 7]);
+createListByArr([1, 2, 3, 4, 'Okten', 5, true]);
 
-// task 9- створити функцію яка приймає масив об'єктів з наступними полями id,name,age , та виводить їх в документ. Для кожного об'єкту окремий блок.
+// task 9- створити функцію яка приймає масив об'єктів з наступними полями id,name,age ,
+// та виводить їх в документ. Для кожного об'єкту окремий блок.
 let createBlockByObject = function (arr) {
     for (let i = 0; i < arr.length; i++) {
         document.write('<div>');
@@ -133,7 +134,7 @@ let swap = function (arr, indexChange1, indexChange2) {
     arr[indexChange2] = temp;
     return arr;
 }
-console.log(swap([4, 2, 3, 5, -1, 8, -10, 4, 1], 0, 6));
+console.log(swap([4, 2, 3, 5, -1, 8, -10, 4, 1], 5, 6));
 
 console.log('13==========================');
     // task 13 Написати функцію обміну валюти exchange(sumUAH,currencyValues,exchangeCurrency)
