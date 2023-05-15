@@ -120,7 +120,7 @@ EXAMPLE:
 [0,1,2,3,4] => [1,2,3,4,0]
 [0,0,1,0]   => [1,0,0,0]
 */
-const sortArr = function (arr) {
+const sortArr = arr => {
     let count = 0;
     const newArr = [];
     for (let i = 0; i < arr.length; i++) {
