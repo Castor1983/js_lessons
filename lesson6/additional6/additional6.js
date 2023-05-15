@@ -128,20 +128,3 @@ document.writeln(cutString(str, 5)) // 'Сила тяжести приложен
 
 */
 
-const sortArr = function (arr) {
-    let count = 0;
-    const newArr = [];
-    for (let i = 0; i < arr.length; i++) {
-        if (arr[i] === 0) {
-            count++;
-        } else {
-            newArr[newArr.length] = arr[i];
-        }
-    }
-        for (let i = 0; i < count; i++) {
-            newArr[newArr.length] = 0;
-        }
-
-    console.log(newArr);
-}
-    sortArr([1, 0, 1, 2, 0, 3]);
