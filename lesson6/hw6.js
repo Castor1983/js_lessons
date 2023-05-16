@@ -1,3 +1,4 @@
+console.log('1++++++++++++++');
 // task 1- Знайти та вивести довижину настипних стрінгових значень 'hello world', 'lorem ipsum', 'javascript is cool'
 let str = 'hello world';
 console.log(str.length);
@@ -6,11 +7,15 @@ console.log(str1.length);
 let str2 = 'javascript is cool';
 console.log(str2.length);
 
+
+console.log('2++++++++++++++');
 // task 2 - Перевести до великого регістру наступні стрінгові значення 'hello world', 'lorem ipsum', 'javascript is cool'
 console.log(str.toUpperCase());
 console.log(str1.toUpperCase());
 console.log(str2.toUpperCase());
 
+
+console.log('3++++++++++++++');
 // task 3 - Перевести до нижнього регістру настипні стрінгові значення 'HELLO WORLD', 'LOREM IPSUM', 'JAVASCRIPT IS COOL'
 let str3 = 'HELLO WORLD';
 console.log(str3.toLowerCase());
@@ -19,11 +24,13 @@ console.log(str4.toLowerCase());
 let str5 = 'JAVASCRIPT IS COOL';
 console.log(str5.toLowerCase());
 
+console.log('4++++++++++++++');
 // task 4 - Є "брудна" стрінга let str = ' dirty string   ' . Почистити її від зайвих пробілів.
-
 let str6 = ' dirty string   ';
 console.log(str6.trim());
 
+
+console.log('5++++++++++++++');
 /* task 5 - Напишіть функцію stringToarray(str), яка перетворює рядок на масив слів.
    let str = 'Ревуть воли як ясла повні';
 let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
@@ -37,12 +44,14 @@ let stringToarray = str => {
 
 stringToarray(str7);
 
+console.log('6++++++++++++++');
 // task 6 - є масив чисел [10,8,-7,55,987,-1011,0,1050,0] . за допомоги map  перетворити всі об'єкти в масиві на стрінгові.
 let arrNumber = [10, 8, -7, 55, 987, -1011, 0, 1050, 0];
 let arrString = arrNumber.map(String);
 console.log(arrString);
 
 
+console.log('7++++++++++++++');
 /*
 task 7 - створити функцію sortNums(direction), яка прймає масив чисел, та сортує його від більшого до меньшого,
     або навпаки в залежності від значення аргументу direction.
@@ -53,7 +62,7 @@ sortNums(nums,'descending') // [21,11,3]
 
 let nums = [11, 21, 3];
 
-/*let sortNums = function (arr, direction) {
+/*let sortNums = (arr, direction) => {
     if (direction === 'ascending') {
         return arr.sort(function (a, b) {
             return a - b;
@@ -62,8 +71,7 @@ let nums = [11, 21, 3];
         return arr.sort(function (a, b) {
             return b - a;
         });
-}
-console.log(sortNums(nums, 'descending'));*/
+}*/
 
 
 let sortNums = (arr, direction) => {
@@ -73,13 +81,13 @@ let sortNums = (arr, direction) => {
             break;
         case 'descending':
             return arr.sort((a, b) => b - a);
-    }
-    ;
+    };
 }
 console.log(sortNums(nums, 'ascending'));
 console.log(sortNums(nums, 'descending'));
 
 
+console.log('8++++++++++++++');
 // task 8 - є масив
 let coursesAndDurationArray = [
     {title: 'JavaScript Complex', monthDuration: 5},
@@ -103,6 +111,8 @@ let createId = arr => arr.map((value, index = 0) => {
 });
 console.log(createId(coursesAndDurationArray));
 
+
+console.log('9++++++++++++++');
 // task 9    описати колоду карт (від 6 до туза без джокерів)
 
 let cardDeck = [
@@ -160,11 +170,12 @@ console.log(redAll(cardDeck));
 let diamondAll = arr => arr.filter(el => el.cardSuit === 'diamond');
 console.log(diamondAll(cardDeck));
 
-//- всі трефи від 9 та більше !!!!!!! НЕ ФИЛЬТРУЕТ 10================================================
+//- всі трефи від 9 та більше
 
-let clubAll = arr => arr.filter(el => el.cardSuit === 'clubs' && el.value >= '9');
+let clubAll = arr => arr.filter(el => (el.cardSuit === 'clubs' && (el.value >= '9' ||  el.value === '10')));
 console.log(clubAll(cardDeck));
 
+console.log('10++++++++++++++');
 
 // task 10  Взяти описану колоду карт, та за допомоги reduce упакувати всі карти по "мастях" в об'єкт
 
@@ -186,6 +197,9 @@ let cardsToSuit = cardDeck.reduce((total, amount) => {
 }, { spades: [], diamonds: [], hearts: [],  clubs: []
 });
     console.log(cardsToSuit);
+
+
+console.log('11++++++++++++++');
 
 // task 11   взяти з arrays.js (який лежить в папці 2023 plan) масив coursesArray
 
