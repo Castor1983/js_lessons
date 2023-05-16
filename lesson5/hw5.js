@@ -30,35 +30,35 @@ createParag('school Okten');
 
 // task 6 - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий
 let createList = list => {
-    document.write(`<ul>`);
+    document.write('<ul>');
     for (let i = 0; i < 3; i++) {
         document.write(`<li>${list}</li>`);
     }
-    document.write(`</ul>`);
+    document.write('</ul>');
 }
-createList("Okten cchool");
+createList('Okten cchool');
 
 
 // task 7 - створити функцію яка створює ul з трьома елементами li. Текст li задати через аргумент всім однаковий.
 // Кількість li визначається другим аргументом, який є числовим (тут використовувати цикл)
 let createList2 = (list, counter) => {
-    document.write(`<ul>`);
+    document.write('<ul>');
     for (let i = 0; i < counter; i++) {
         document.write(`<li>${list}</li>`);
     }
-    document.write(`</ul>`);
+    document.write('</ul>');
 }
-createList2("Okten", 10);
+createList2('Okten', 10);
 
 
 
 // task 8 - створити функцію яка приймає масив примітивних елементів (числа,стрінги,булеві), та будує для них список
 let createListByArr = arr => {
-    document.write(`<ul>`);
+    document.write('<ul>');
     for (let i = 0; i < arr.length; i++) {
         document.write(`<li>${arr[i]}</li>`);
     }
-    document.write(`</ul>`);
+    document.write('</ul>');
 }
 createListByArr([1, 2, 3, 4, 4, 'Okten', 5, 7, true]);
 
@@ -68,13 +68,13 @@ createListByArr([1, 2, 3, 4, 4, 'Okten', 5, 7, true]);
 // та виводить їх в документ. Для кожного об'єкту окремий блок.
 let createBlockByObject = arr => {
     for (let i = 0; i < arr.length; i++) {
-        document.write(`<div>`);
-        document.write(`<ul>`);
+        document.write('<div>');
+        document.write('<ul>');
         document.write(`<li>${arr[i].id}</li>`);
         document.write(`<li>${arr[i].name}</li>`);
         document.write(`<li>${arr[i].age}</li>`);
-        document.write(`</ul>`);
-        document.write(`</div>`);
+        document.write('</ul>');
+        document.write('</div>');
 
     }
 }
@@ -96,13 +96,13 @@ createBlockByObject([
 console.log('10+++++++++++++++++++++++++++')
 // task 10 - створити функцію яка повертає найменьше число з масиву
 let minNumber = arr => {
-    let temp = arr[0];
+    let min = arr[0];
     for (let i = 0; i < arr.length; i++) {
-        if (temp > arr[i]) {
-            temp = arr[i];
+        if (min > arr[i]) {
+            min = arr[i];
         }
     }
-    return temp;
+    return min;
 }
 console.log(minNumber([4, 2, 3, 5, -1, 8, -10, 4, 1]));
 
@@ -111,11 +111,11 @@ console.log('11+++++++++++++++++++++++++++')
 // task 11 - створити функцію sum(arr)яка приймає масив чисел, сумує значення елементів масиву
 // та повертає його. Приклад sum([1,2,10]) //->13
 let sumNumber = arr => {
-    let temp = 0;
+    let sum = 0;
     for (let i = 0; i < arr.length; i++) {
-        temp += arr[i];
+        sum += arr[i];
     }
-    return temp;
+    return sum;
 }
 console.log(sumNumber([4, 2, 3, 5, -1, 8, -10, 4, 1]));
 
