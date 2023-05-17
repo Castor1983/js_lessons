@@ -203,12 +203,89 @@ document.writeln(cutString1(str4, 5)) // 'Сила тяжести приложе
 
 
 //-стоврити масив книжок (назва, кількість сторінок, автори , жанри).
-//-знайти наібльшу книжку.
-    //- знайти книжку/ки з найбільшою кількістю жанрів
-    //- знайти книжку/ки з найдовшою назвою
-    //- знайти книжку/ки які писали 2 автори
-    //- знайти книжку/ки які писав 1 автор
-    //- вісортувати книжки по кількості сторінок по зростанню
+const books =
+    [
+        {
+            title: 'The Daughters Tale',
+            numberOfPages: 324,
+            authors: [{name: 'Armando Lucas Correa', age: 44}, {name: 'Jess Kidd', age: 30}],
+            genres: ['Fantasy', 'Adventure', 'Romance', 'Contemporary', 'Mystery', 'Horror', 'Thriller']
+        },
+        {
+            title: 'Himself',
+            numberOfPages: 225,
+            authors: [{name: 'Jess Kidd', age: 30}],
+            genres: ['Adventure', 'Romance', 'Contemporary']
+        },
+        {title: 'Gorgeous Lies', numberOfPages: 123, authors: [{name: 'Martha McPhee', age: 28}, ], genres: ['Fantasy']},
+        {
+            title: 'All the Missing Girls',
+            numberOfPages: 560,
+            authors: [{name: 'Megan Miranda', age: 50}],
+            genres: ['Mystery', 'Horror',]
+        },
+        {
+            title: 'The Beautiful Bureaucrat',
+            numberOfPages: 220,
+            authors: [{name: 'Helen Phillips', age: 22}],
+            genres: ['Contemporary', 'Mystery', 'Horror', 'Thriller']
+        },
+        {
+            title: 'Love Story',
+            numberOfPages: 322,
+            authors: [{name: 'Karen Kingsbury', age: 25}, {name: 'Martha McPhee', age: 28}],
+            genres: ['Fantasy', 'Adventure', 'Romance', 'Contemporary', 'Mystery', 'Horror',]
+        }
 
+    ];
+//-знайти наібльшу книжку.
+let bigBook = arr =>
+let temp = books[0];
+for (let j = 1; j < books.length - 1; j++) {
+    if(temp.numberOfPages < books[j].numberOfPages) {
+        temp = books[j];
+    }
+
+}
+console.log(temp);
+    //- знайти книжку/ки з найбільшою кількістю жанрів
+let largGenre = arr =>
+temp = books[0];
+for (let j = 1; j < books.length - 1; j++) {
+    if(temp.genres.length < books[j].genres.length) {
+        temp = books[j];
+    }
+
+
+}
+console.log(temp);
+    //- знайти книжку/ки з найдовшою назвою
+let largName = arr =>
+temp = books[0];
+for (let j = 1; j < books.length - 1; j++) {
+    if(temp.title.length < books[j].title.length) {
+        temp = books[j];
+    }
+
+
+}
+console.log(temp);
+    //- знайти книжку/ки які писали 2 автори
+let twoAuthors = arr =>
+for (let j = 0; j < books.length; j++) {
+    if(books[j].authors.length === 2) {
+        console.log(books[j]);
+    }
+}
+    //- знайти книжку/ки які писав 1 автор
+let oneAuthor = arr =>
+for (let j = 0; j < books.length; j++) {
+    if(books[j].authors.length === 1) {
+        console.log(books[j]);
+    }
+}
+    //- вісортувати книжки по кількості сторінок по зростанню
+let sortByPages = arr => arr.sort((a, b) => a.numberOfPages - b.numberOfPages);
+console.log(sortByPages(books));
 
 
