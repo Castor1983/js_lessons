@@ -252,11 +252,21 @@ bigBook(books);
     //- знайти книжку/ки з найбільшою кількістю жанрів
 let largGenre = arr => {
 let largeGenreBook = books[0];
+let arrlargeGenreBook =[];
     arr.find(el => {
         if (largeGenreBook.genres.length < el.genres.length) {
             largeGenreBook = el;
         } })
-    console.log(largeGenreBook);
+    arr.filter(el => {
+        if (largeGenreBook.genres.length = el.genres.length) {
+            arrlargeGenreBook.push(el);
+
+        } })
+    if(arrlargeGenreBook.length === 1) {
+        console.log(largeGenreBook);
+    } else {
+        console.log(arrlargeGenreBook);
+    }
 }
 largGenre(books);
 
