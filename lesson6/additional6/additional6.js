@@ -43,7 +43,9 @@ document.writeln(insert_dash(str1)); // 'HTML-JAVASCRIPT-PHP'
 
 //- Напишіть функцію, яка приймає рядок як аргумент і перетворює регістр першого символу рядка з нижнього регістру у верхній.
 let upFirstLetter = str => str[0].toUpperCase() + str.slice(1);
+document.writeln('<div>');
 document.writeln(upFirstLetter('ветер, ветер ты могуч'));
+document.writeln('</div>');
 
 //- Дано список імен.
 let n1 = 'Harry..Potter'
@@ -62,7 +64,10 @@ let userName = user => {
 
     return newUser;
 }
-console.log(userName(n1));
+document.writeln('<div>');
+document.writeln(userName(n3)); //??????????????????????????????
+document.writeln('</div>');
+
 /*let n1 = 'Harry Potter'
 let n2 = 'Ron Whisley'
 let n3 = 'Hermione Granger'*/
@@ -73,14 +78,20 @@ const randomNumber = function () {
     for (let i = 0; i < 20; i++) {
         arr[arr.length] = Math.round(Math.random() * 100);
     }
-    console.log(arr) ;
+    document.writeln('<div>');
+    document.writeln(arr) ;
+    document.writeln('</div>');
     //- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
 // Відсортувати його за допомоги sort
-    console.log(arr.sort());
+    document.writeln('<div>');
+    document.writeln(arr.sort());
+    document.writeln('</div>');
 
 //- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
 // відфільтрувати  його за допомоги filter, залишивши тільки парні числа (без 0!)
-    console.log(arr.filter(el => el > 0 && el % 2 === 0));
+    document.writeln('<div>');
+    document.writeln(arr.filter(el => el > 0 && el % 2 === 0));
+    document.writeln('</div>');
 };
 randomNumber();
 
@@ -97,11 +108,14 @@ let firstUpLetter = arr[i][0].toUpperCase() + arr[i].slice(1)
             newStr += firstUpLetter + ' ';
         }
     }
-    console.log(newStr);
+    document.writeln(newStr);
 }
 capitalize('Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.');
 
-//- Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
+//- Створити функцію-валідатор для адрес електронної пошти.
+// Перевірка повинна включати в себе :данні до знака равлика(@),
+// наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика,
+// функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
 /*Протестувати на значеннях
 someemail@gmail.com
 someeMAIL@gmail.com
@@ -124,32 +138,13 @@ let coursesArray = [
         title: 'Java Complex',
         monthDuration: 6,
         hourDuration: 909,
-        modules: ['html',
-            'css',
-            'js',
-            'mysql',
-            'mongodb',
-            'angular',
-            'aws',
-            'docker',
-            'git',
-            'java core',
-            'java advanced']
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'git', 'java core', 'java advanced']
     },
     {
         title: 'Python Complex',
         monthDuration: 6,
         hourDuration: 909,
-        modules: ['html',
-            'css',
-            'js',
-            'mysql',
-            'mongodb',
-            'angular',
-            'aws',
-            'docker',
-            'python core',
-            'python advanced']
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'angular', 'aws', 'docker', 'python core', 'python advanced']
     },
     {
         title: 'QA Complex',
@@ -161,19 +156,7 @@ let coursesArray = [
         title: 'FullStack',
         monthDuration: 7,
         hourDuration: 909,
-        modules: ['html',
-            'css',
-            'js',
-            'mysql',
-            'mongodb',
-            'react',
-            'angular',
-            'aws',
-            'docker',
-            'git',
-            'node.js',
-            'python',
-            'java']
+        modules: ['html', 'css', 'js', 'mysql', 'mongodb', 'react', 'angular', 'aws', 'docker', 'git', 'node.js', 'python', 'java']
     },
     {
         title: 'Frontend',
@@ -185,14 +168,38 @@ let coursesArray = [
 
 
 //-відсортувати його в спадаючому порядку за кількістю елементів в полі modules
+let sortArr = arr => arr.sort((a, b) => b.modules.length - a.modules.length);
+console.log(sortArr(coursesArray));
 
 //- Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
     let symb = "о", str3 = "Астрономия это наука о небесных объектах";
-//document.writeln(count(str3, symb)) // 5
+    let count = (str, stringsearch) => {
+        let counter = 0;
+        for (const strElement of str) {
+            if (strElement === stringsearch)
+                counter++;
+        }
+        return counter;
+    }
+document.writeln('<div>');
+document.writeln(count(str3, symb)) // 5
+document.writeln('</div>');
 
 //- Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
     let str4 = "Сила тяжести приложена к центру масс тела";
-document.writeln(cutString(str4, 5)) // 'Сила тяжести приложена к центру'
+const cutString1 = (str, n) => {
+    let cutStr = '';
+    let arr = str.split(' ');
+    for (let i = 0; i < n; i++) {
+        if(i === n) {
+            cutStr += arr[i];
+        } else {
+            cutStr += arr[i] + ' ';
+        }
+    }
+    return cutStr;
+}
+document.writeln(cutString1(str4, 5)) // 'Сила тяжести приложена к центру'
 
 
 //-стоврити масив книжок (назва, кількість сторінок, автори , жанри).
