@@ -209,7 +209,7 @@ const books =
             title: 'The Daughters Tale',
             numberOfPages: 324,
             authors: [{name: 'Armando Lucas Correa', age: 44}, {name: 'Jess Kidd', age: 30}],
-            genres: ['Fantasy', 'Adventure', 'Romance', 'Contemporary', 'Mystery', 'Horror', 'Thriller']
+            genres: ['Fantasy', 'Adventure', 'Romance', 'Contemporary', 'Mystery', 'Horror']
         },
         {
             title: 'Himself',
@@ -250,18 +250,18 @@ let bigBook = arr => {
 }
 bigBook(books);
     //- знайти книжку/ки з найбільшою кількістю жанрів
-/*let largGenre = arr =>
-temp = books[0];
-for (let j = 1; j < books.length - 1; j++) {
-    if(temp.genres.length < books[j].genres.length) {
-        temp = books[j];
-    }
-
-
+let largGenre = arr => {
+let largeGenreBook = books[0];
+    arr.find(el => {
+        if (largeGenreBook.genres.length < el.genres.length) {
+            largeGenreBook = el;
+        } })
+    console.log(largeGenreBook);
 }
-console.log(temp);
+largGenre(books);
+
     //- знайти книжку/ки з найдовшою назвою
-let largName = arr =>
+/*let largName = arr =>
 temp = books[0];
 for (let j = 1; j < books.length - 1; j++) {
     if(temp.title.length < books[j].title.length) {
