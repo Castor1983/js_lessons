@@ -239,17 +239,18 @@ const books =
 
     ];
 //-знайти наібльшу книжку.
-let bigBook = arr =>
-let temp = books[0];
-for (let j = 1; j < books.length - 1; j++) {
-    if(temp.numberOfPages < books[j].numberOfPages) {
-        temp = books[j];
-    }
 
+let bigBook = arr => {
+    let bBook = books[0];
+    arr.find(el => {
+        if (bBook.numberOfPages < el.numberOfPages) {
+            bBook = el;
+        } })
+    console.log(bBook);
 }
-console.log(temp);
+bigBook(books);
     //- знайти книжку/ки з найбільшою кількістю жанрів
-let largGenre = arr =>
+/*let largGenre = arr =>
 temp = books[0];
 for (let j = 1; j < books.length - 1; j++) {
     if(temp.genres.length < books[j].genres.length) {
@@ -269,21 +270,15 @@ for (let j = 1; j < books.length - 1; j++) {
 
 
 }
-console.log(temp);
+console.log(temp);*/
     //- знайти книжку/ки які писали 2 автори
-let twoAuthors = arr =>
-for (let j = 0; j < books.length; j++) {
-    if(books[j].authors.length === 2) {
-        console.log(books[j]);
-    }
-}
+let twoAuthors = arr => arr.filter(el => el.authors.length === 2)
+console.log(twoAuthors(books));
+
     //- знайти книжку/ки які писав 1 автор
-let oneAuthor = arr =>
-for (let j = 0; j < books.length; j++) {
-    if(books[j].authors.length === 1) {
-        console.log(books[j]);
-    }
-}
+let oneAuthor = arr => arr.filter(el => el.authors.length === 1)
+console.log(oneAuthor(books));
+
     //- вісортувати книжки по кількості сторінок по зростанню
 let sortByPages = arr => arr.sort((a, b) => a.numberOfPages - b.numberOfPages);
 console.log(sortByPages(books));
