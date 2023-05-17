@@ -24,7 +24,7 @@ document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден
 
 //- Напишіть функцію delete_characters(str, length), яка повертає підрядок, що складається із зазначеної кількості символів.
 
-let str = 'Каждый охотник желает знать';
+let str = 'Kаждый охотник желает знать';
 let delete_characters = (str, length) => {
     return str.slice(0, length);
 }
@@ -50,16 +50,57 @@ let n1 = 'Harry..Potter'
 let n2 = 'Ron---Whisley'
 let n3 = 'Hermione__Granger'
 // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
+let userName = user => {
+    newUser = '';
+    for (const letter of user) {
+        if ((letter > '64' && letter > '91') || (letter > '96' && letter < '122')) {
+            newUser += letter;
+        } else {
+            newUser += ' ';
+        }
+    }
 
+    return newUser;
+}
+console.log(userName(n1));
 /*let n1 = 'Harry Potter'
 let n2 = 'Ron Whisley'
 let n3 = 'Hermione Granger'*/
 
 // - створити функцію, яка генерує масив рандомних числових цілих значень в діапазоні від 0 до 100.
-//- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. Відсортувати його за допомоги sort
-//- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень. відфільтрувати  його за допомоги filter, залишивши тільки парні числа (без 0!)
+const randomNumber = function () {
+    let arr = [];
+    for (let i = 0; i < 20; i++) {
+        arr[arr.length] = Math.round(Math.random() * 100);
+    }
+    console.log(arr) ;
+    //- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
+// Відсортувати його за допомоги sort
+    console.log(arr.sort());
+
+//- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
+// відфільтрувати  його за допомоги filter, залишивши тільки парні числа (без 0!)
+    console.log(arr.filter(el => el > 0 && el % 2 === 0));
+};
+randomNumber();
 
 //- Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.
+
+let capitalize = str => {
+    let arr = str.split(' ');
+    let newStr = '';
+    for (let i = 0; i < arr.length; i++) {
+let firstUpLetter = arr[i][0].toUpperCase() + arr[i].slice(1)
+        if( i === arr.length - 1) {
+            newStr += firstUpLetter;
+        } else {
+            newStr += firstUpLetter + ' ';
+        }
+    }
+    console.log(newStr);
+}
+capitalize('Напишіть функцію capitalize(str), яка повертає рядок, у якому кожне слово починається з великої літери.');
+
 //- Створити функцію-валідатор для адрес електронної пошти. Перевірка повинна включати в себе :данні до знака равлика(@), наявність равлика, крапку яка знаходиться не меньше ніж на 2 символ далі після равлика, функція не чутлива до регістру (some@email.com,SOME@EMAIL.COM,some@EMAIL.com, і тд - однакові значення)
 /*Протестувати на значеннях
 someemail@gmail.com
