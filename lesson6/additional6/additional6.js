@@ -4,7 +4,7 @@ let cutString = (str, n) => {
     let counter = 0;
     while (counter < str.length) {
         let cutStr = '';
-        if ( (counter + n) <= str.length) {
+        if ((counter + n) <= str.length) {
             for (let j = counter; j < (counter + n); j++) {
                 cutStr += str[j];
             }
@@ -16,10 +16,10 @@ let cutString = (str, n) => {
         arrStr[arrStr.length] = cutStr;
         counter += n;
     }
-        return arrStr;
+    return arrStr;
 }
 
-document.writeln(cutString('наслаждение',3)) // [нас,лаж,ден,ие]
+document.writeln(cutString('наслаждение', 3)) // [нас,лаж,ден,ие]
 
 
 //- Напишіть функцію delete_characters(str, length), яка повертає підрядок, що складається із зазначеної кількості символів.
@@ -34,11 +34,11 @@ document.writeln('</div>');
 
 //- Напишіть функцію insert_dash(str), яка приймає рядок str як аргумент і вставляє тире (-) між словами.
 // При цьому всі символи рядка необхідно перевести у верхній регістр.
-    let str1 = "HTML JavaScript PHP";
-    let insert_dash = str => {
-        let newStr = str.replaceAll(' ', '-')
-        return newStr.toUpperCase();
-    }
+let str1 = "HTML JavaScript PHP";
+let insert_dash = str => {
+    let newStr = str.replaceAll(' ', '-')
+    return newStr.toUpperCase();
+}
 document.writeln(insert_dash(str1)); // 'HTML-JAVASCRIPT-PHP'
 
 //- Напишіть функцію, яка приймає рядок як аргумент і перетворює регістр першого символу рядка з нижнього регістру у верхній.
@@ -53,7 +53,7 @@ let n2 = 'Ron---Whisley'
 let n3 = 'Hermione__Granger'
 // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
 let userName = user => {
-   let result = '';
+    let result = '';
     let correctName = user.replaceAll('.', '')
         .replaceAll('-', '')
         .replaceAll('_', '')
@@ -70,7 +70,7 @@ let userName = user => {
         .replaceAll('+', '')
         .replaceAll('%', '')
     for (let i = 0; i < correctName.length; i++) {
-        if(correctName[i] === correctName[i].toUpperCase()){
+        if (correctName[i] === correctName[i].toUpperCase()) {
             result += ' ' + correctName[i];
         } else {
             result += correctName[i];
@@ -94,7 +94,7 @@ const randomNumber = function () {
         arr[arr.length] = Math.round(Math.random() * 100);
     }
     document.writeln('<div>');
-    document.writeln(arr) ;
+    document.writeln(arr);
     document.writeln('</div>');
     //- створити (або згенерувати, за допомоги попередньої функції) масив рандомних цілих числових значень.
 // Відсортувати його за допомоги sort
@@ -116,8 +116,8 @@ let capitalize = str => {
     let arr = str.split(' ');
     let newStr = '';
     for (let i = 0; i < arr.length; i++) {
-let firstUpLetter = arr[i][0].toUpperCase() + arr[i].slice(1)
-        if( i === arr.length - 1) {
+        let firstUpLetter = arr[i][0].toUpperCase() + arr[i].slice(1)
+        if (i === arr.length - 1) {
             newStr += firstUpLetter;
         } else {
             newStr += firstUpLetter + ' ';
@@ -142,13 +142,20 @@ some.email@gmail.com*/
     Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.*/
 
 let validate = str => {
-    str.toLowerCase();
-    for (let i = 0; i < str.length; i++) {
-        ;
+    if (!str.includes('@')) {
+        return 'email is not correct';
+    } else {
+
+        let partOfEmail = str.split('@');
+        if (partOfEmail[0].includes('.') || partOfEmail[0].length < 5 || !partOfEmail[1].includes('.') || partOfEmail[1].indexOf('.') < 1) {
+            return 'email is not correct';
+        } else {
+            return str.toLowerCase();
+        }
 
     }
 }
-
+console.log(validate('someeMAIL@gmail.com'));
 //- є масив
 let coursesArray = [
     {
@@ -195,26 +202,26 @@ let sortArr = arr => arr.sort((a, b) => b.modules.length - a.modules.length);
 console.log(sortArr(coursesArray));
 
 //- Напишіть функцію count(str, stringsearch), яка повертає кількість символів stringsearch у рядку str.
-    let symb = "о", str3 = "Астрономия это наука о небесных объектах";
-    let count = (str, stringsearch) => {
-        let counter = 0;
-        for (const strElement of str) {
-            if (strElement === stringsearch)
-                counter++;
-        }
-        return counter;
+let symb = "о", str3 = "Астрономия это наука о небесных объектах";
+let count = (str, stringsearch) => {
+    let counter = 0;
+    for (const strElement of str) {
+        if (strElement === stringsearch)
+            counter++;
     }
+    return counter;
+}
 document.writeln('<div>');
 document.writeln(count(str3, symb)) // 5
 document.writeln('</div>');
 
 //- Напишіть функцію cutString(str, n), яка видаляє зайві слова з рядка str, залишивши у ній n слів.
-    let str4 = "Сила тяжести приложена к центру масс тела";
+let str4 = "Сила тяжести приложена к центру масс тела";
 const cutString1 = (str, n) => {
     let cutStr = '';
     let arr = str.split(' ');
     for (let i = 0; i < n; i++) {
-        if(i === n) {
+        if (i === n) {
             cutStr += arr[i];
         } else {
             cutStr += arr[i] + ' ';
@@ -240,7 +247,7 @@ const books =
             authors: [{name: 'Jess Kidd', age: 30}],
             genres: ['Adventure', 'Romance', 'Contemporary']
         },
-        {title: 'Gorgeous Lies', numberOfPages: 123, authors: [{name: 'Martha McPhee', age: 28}, ], genres: ['Fantasy']},
+        {title: 'Gorgeous Lies', numberOfPages: 123, authors: [{name: 'Martha McPhee', age: 28},], genres: ['Fantasy']},
         {
             title: 'All the Missing Girls',
             numberOfPages: 560,
@@ -268,55 +275,60 @@ let bigBook = arr => {
     arr.find(el => {
         if (bBook.numberOfPages < el.numberOfPages) {
             bBook = el;
-        } })
+        }
+    })
     console.log(bBook);
 }
 bigBook(books);
-    //- знайти книжку/ки з найбільшою кількістю жанрів
+//- знайти книжку/ки з найбільшою кількістю жанрів
 let largGenre = arr => {
-let largeGenreBook = books[0];
-let arrLargeGenreBook =[];
+    let largeGenreBook = books[0];
+    let arrLargeGenreBook = [];
     arr.forEach(el => {
         if (largeGenreBook.genres.length < el.genres.length) {
             largeGenreBook = el;
-        } });
+        }
+    });
     arr.filter(el => {
         if (largeGenreBook.genres.length === el.genres.length) {
             arrLargeGenreBook.push(el);
 
-        } });
-        console.log(arrLargeGenreBook);
+        }
+    });
+    console.log(arrLargeGenreBook);
 
 }
 largGenre(books);
 
-    //- знайти книжку/ки з найдовшою назвою
-let largName = arr =>{
+//- знайти книжку/ки з найдовшою назвою
+let largName = arr => {
     let largeNameBook = books[0];
-    let arrLargeNameBook =[];
+    let arrLargeNameBook = [];
     arr.forEach(el => {
         if (largeNameBook.title.length < el.title.length) {
             largeNameBook = el;
-        } });
+        }
+    });
     arr.filter(el => {
         if (largeNameBook.title.length === el.title.length) {
             arrLargeNameBook.push(el);
 
-        } });
+        }
+    });
     console.log(arrLargeNameBook);
 
 }
 largName(books);
 
-    //- знайти книжку/ки які писали 2 автори
+//- знайти книжку/ки які писали 2 автори
 let twoAuthors = arr => arr.filter(el => el.authors.length === 2)
 console.log(twoAuthors(books));
 
-    //- знайти книжку/ки які писав 1 автор
+//- знайти книжку/ки які писав 1 автор
 let oneAuthor = arr => arr.filter(el => el.authors.length === 1)
 console.log(oneAuthor(books));
 
-    //- вісортувати книжки по кількості сторінок по зростанню
+//- вісортувати книжки по кількості сторінок по зростанню
 let sortByPages = arr => arr.sort((a, b) => a.numberOfPages - b.numberOfPages);
 console.log(sortByPages(books));
 
