@@ -53,19 +53,34 @@ let n2 = 'Ron---Whisley'
 let n3 = 'Hermione__Granger'
 // Написати функцію, яка приймає будь яке не валідне імя, та нормалізує його в наступнйи вигляд
 let userName = user => {
-    newUser = '';
-    for (const letter of user) {
-        if ((letter > '64' && letter > '91') || (letter > '96' && letter < '122')) {
-            newUser += letter;
+   let result = '';
+    let correctName = user.replaceAll('.', '')
+        .replaceAll('-', '')
+        .replaceAll('_', '')
+        .replaceAll('(', '')
+        .replaceAll(')', '')
+        .replaceAll('!', '')
+        .replaceAll('/', '')
+        .replaceAll(',', '')
+        .replaceAll(';', '')
+        .replaceAll(':', '')
+        .replaceAll('{', '')
+        .replaceAll('}', '')
+        .replaceAll('*', '')
+        .replaceAll('+', '')
+        .replaceAll('%', '')
+    for (let i = 0; i < correctName.length; i++) {
+        if(correctName[i] === correctName[i].toUpperCase()){
+            result += ' ' + correctName[i];
         } else {
-            newUser += ' ';
+            result += correctName[i];
         }
     }
+    return result;
 
-    return newUser;
 }
 document.writeln('<div>');
-document.writeln(userName(n3)); //??????????????????????????????
+document.writeln(userName(n3));
 document.writeln('</div>');
 
 /*let n1 = 'Harry Potter'
@@ -125,6 +140,14 @@ some.email@gmail.com*/
 /*Примітка
 Для тих, хто дуже розумний, та почне використовувати регулярні вирази одразу "ні".
     Своїм мозком подумайте над протоколом, з регулярками будете потім бавитись.*/
+
+let validate = str => {
+    str.toLowerCase();
+    for (let i = 0; i < str.length; i++) {
+        ;
+
+    }
+}
 
 //- є масив
 let coursesArray = [
@@ -252,35 +275,39 @@ bigBook(books);
     //- знайти книжку/ки з найбільшою кількістю жанрів
 let largGenre = arr => {
 let largeGenreBook = books[0];
-let arrlargeGenreBook =[];
-    arr.find(el => {
+let arrLargeGenreBook =[];
+    arr.forEach(el => {
         if (largeGenreBook.genres.length < el.genres.length) {
             largeGenreBook = el;
-        } })
+        } });
     arr.filter(el => {
-        if (largeGenreBook.genres.length = el.genres.length) {
-            arrlargeGenreBook.push(el);
+        if (largeGenreBook.genres.length === el.genres.length) {
+            arrLargeGenreBook.push(el);
 
-        } })
-    if(arrlargeGenreBook.length === 1) {
-        console.log(largeGenreBook);
-    } else {
-        console.log(arrlargeGenreBook);
-    }
+        } });
+        console.log(arrLargeGenreBook);
+
 }
 largGenre(books);
 
     //- знайти книжку/ки з найдовшою назвою
-/*let largName = arr =>
-temp = books[0];
-for (let j = 1; j < books.length - 1; j++) {
-    if(temp.title.length < books[j].title.length) {
-        temp = books[j];
-    }
+let largName = arr =>{
+    let largeNameBook = books[0];
+    let arrLargeNameBook =[];
+    arr.forEach(el => {
+        if (largeNameBook.title.length < el.title.length) {
+            largeNameBook = el;
+        } });
+    arr.filter(el => {
+        if (largeNameBook.title.length === el.title.length) {
+            arrLargeNameBook.push(el);
 
+        } });
+    console.log(arrLargeNameBook);
 
 }
-console.log(temp);*/
+largName(books);
+
     //- знайти книжку/ки які писали 2 автори
 let twoAuthors = arr => arr.filter(el => el.authors.length === 2)
 console.log(twoAuthors(books));
