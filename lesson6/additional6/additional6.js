@@ -1,5 +1,5 @@
 //- Напишите функцию cutString(str, n), которая делит строку на подстроки, состоящие из n символов.
-let cutString = (str, n) => {
+/*let cutString = (str, n) => {
     let arrStr = [];
     let counter = 0;
     while (counter < str.length) {
@@ -17,6 +17,13 @@ let cutString = (str, n) => {
         counter += n;
     }
     return arrStr;
+}*/
+function cutString(str, n) {
+    const arrCut = [];
+    for (let i = 0; i < str.length; i+=n) {
+        arrCut.push(str.substring(i, i+n));
+    }
+    return arrCut;
 }
 
 document.writeln(cutString('наслаждение', 3)) // [нас,лаж,ден,ие]
