@@ -35,13 +35,11 @@ console.log('5++++++++++++++');
    let str = 'Ревуть воли як ясла повні';
 let arr = stringToarray(str); ['Ревуть', 'воли', 'як', 'ясла', 'повні']
 */
-
 let str7 = 'Ревуть воли як ясла повні';
 let stringToarray = str => {
     let arr = str.split(' ');
     console.log(arr);
 }
-
 stringToarray(str7);
 
 console.log('6++++++++++++++');
