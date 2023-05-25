@@ -1,5 +1,4 @@
-
-
+console.log('task1+++++++++++++++++++++++++++++++');
 /*- Створити функцію конструктор для об'єктів User з полями id, name, surname , email, phone
 створити пустий масив, наповнити його 10 об'єктами new User(....)*/
 
@@ -28,14 +27,19 @@ let users = [
 ];
 console.log(users);
 
+console.log('task2+++++++++++++++++++++++++++++++');
 
 /*- Взяти масив з  User[] з попереднього завдання, та відфільтрувати , залишивши тільки об'єкти з парними id (filter)*/
         let usersEven = users.filter(user => user.id % 2 === 0);
         console.log(usersEven);
+console.log('task3+++++++++++++++++++++++++++++++');
 
 /*- Взяти масив з  User[] з попереднього завдання, та відсортувати його по id. по зростанню (sort)*/
         let usersIncrease = users.sort((a, b) => a.id - b.id );
         console.log(usersIncrease);
+
+console.log('task4+++++++++++++++++++++++++++++++');
+
 /*- створити класс для об'єктів Client з полями id, name, surname , email, phone, order (поле є масивом зі списком товарів)
 створити пустий масив, наповнити його 10 об'єктами Client*/
 class Client extends User {
@@ -68,11 +72,14 @@ let clients = [
 ];
 console.log(clients);
 
+console.log('task5+++++++++++++++++++++++++++++++');
+
 /*- Взяти масив (Client [] з попереднього завдання).Відсортувати його по кількості товарів в полі order по зростанню. (sort)*/
 
 let clientsSurtByOrder = clients.sort((a, b) => a.order.length - b.order.length);
 console.log(clientsSurtByOrder);
 
+console.log('task6+++++++++++++++++++++++++++++++');
 
 /*- Створити функцію конструктор яка дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску,
 максимальна швидкість, об'єм двигуна. додати в об'єкт функції:
@@ -92,7 +99,7 @@ function Car(model, manufacturer, yearOfManufacture,maximumSpeed, engineVolume) 
         console.log(`їдемо зі швидкістю ${this.maximumSpeed} на годину`);
     };
     this.info = function () {
-        console.log(this);
+            console.log(`model - ${this.model}, manufacturer - ${this.manufacturer}, year of manufacture - ${this.yearOfManufacture}, max speed - ${this.maximumSpeed}, engine volume - ${this.engineVolume}`);
     };
     this.increaseMaxSpeed = function (newSpeed) {
         this.maximumSpeed = newSpeed;
@@ -100,20 +107,24 @@ function Car(model, manufacturer, yearOfManufacture,maximumSpeed, engineVolume) 
     this.changeYear = function (newValue) {
         this.yearOfManufacture = newValue;
     };
-    //?????????
+
     this.addDriver = function (driver) {
         this.driver = driver;
     };
 }
 let car1 = new Car('Geländewagen', 'Mercedes', 2000, 320, 7,);
+
+console.log('task6.1+++++++++++++++++++++++++++++++');
     car1.drive();
+console.log('task6.2+++++++++++++++++++++++++++++++');
     car1.info();
     car1.increaseMaxSpeed(400);
     car1.changeYear(2023);
-    car1.addDriver({name: 'Alex', surname: 'Petrenko'});
+    car1.addDriver({name: 'Serega', surname: 'Stepanenko'});
     console.log(car1);
 
 
+console.log('task7+++++++++++++++++++++++++++++++');
 
 /*- (Те саме, тільки через клас)
 Створити клас який дозволяє створювати об'єкти car, з властивостями модель, виробник, рік випуску,
@@ -132,7 +143,7 @@ class CarIsClass extends Car {
         console.log(`їдемо зі швидкістю ${this.maximumSpeed} на годину`);
     };
     info() {
-        console.log(this);
+        console.log(`model - ${this.model}, manufacturer - ${this.manufacturer}, year of manufacture - ${this.yearOfManufacture}, max speed - ${this.maximumSpeed}, engine volume - ${this.engineVolume}`);
     };
     increaseMaxSpeed(newSpeed) {
         this.maximumSpeed = newSpeed;
@@ -140,7 +151,6 @@ class CarIsClass extends Car {
     changeYear(newValue) {
         this.yearOfManufacture = newValue;
     };
-    //?????????
     addDriver(driver) {
         this.driver = driver;
     };
@@ -153,6 +163,8 @@ car3.changeYear(2022);
 car3.addDriver({name: 'Sergey', surname: 'Vasilenko'
 });
 console.log(car3);
+
+console.log('task8+++++++++++++++++++++++++++++++');
 
 /*
 -створити класс/функцію конструктор попелюшка з полями ім'я, вік, розмір ноги. Створити масив з 10 попелюшок.
@@ -167,9 +179,17 @@ console.log(car3);
         };
     }
 
-    let cinderellas = [new Cinderella('Cinderellla', 14, 33), new Cinderella('Viktoria', 25, 35), new Cinderella('Marina', 15, 37),
-        new Cinderella('Olga', 16, 38), new Cinderella('Tanya', 17, 39), new Cinderella('Angelina', 18, 40), new Cinderella('Veronika', 19, 41),
-        new Cinderella('Irina', 20, 42), new Cinderella('Ludmila', 21, 34), new Cinderella('Kristina', 22, 43)
+    let cinderellas = [
+        new Cinderella('Cinderellla', 14, 33),
+        new Cinderella('Viktoria', 25, 35),
+        new Cinderella('Marina', 15, 37),
+        new Cinderella('Olga', 16, 38),
+        new Cinderella('Tanya', 17, 39),
+        new Cinderella('Angelina', 18, 40),
+        new Cinderella('Veronika', 19, 41),
+        new Cinderella('Irina', 20, 42),
+        new Cinderella('Ludmila', 21, 34),
+        new Cinderella('Kristina', 22, 43)
     ];
     console.log(cinderellas);
     class Prince {
@@ -180,13 +200,15 @@ console.log(car3);
             this.shoeSize = shoeSize;
         };
     }
-    let prince1 = new Prince('Ludvig', 25, 33);
-    console.log(prince1);
+
+    let prince = new Prince('Ludvig', 25, 33);
+    console.log(prince);
 
 for (const cinderella of cinderellas) {
-    if (cinderella.footSize === prince1.shoeSize) {
+    if (cinderella.footSize === prince.shoeSize) {
         console.log(cinderella);
     };
 }
-let cinderellaFound = cinderellas.find(el => el.footSize === prince1.shoeSize);
+
+let cinderellaFound = cinderellas.find(el => el.footSize === prince.shoeSize);
 console.log(cinderellaFound);
