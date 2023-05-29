@@ -15,6 +15,8 @@ htmlDivElement.style.background = 'pink';
 htmlDivElement.style.color = 'white';
 htmlDivElement.style.fontSize = 'xxx-large';
 document.body.appendChild(htmlDivElement);
+let cloneDivElement = htmlDivElement.cloneNode(true);
+document.body.appendChild(cloneDivElement);
 
 
 //- Є масив:
@@ -77,8 +79,7 @@ for (const element of coursesAndDurationArray) {
     divElement.classList.add('item');
     hOneElement.classList.add('heading');
     pElement.classList.add('description');
-    divElement.appendChild(hOneElement);
-    divElement.appendChild(pElement);
+    divElement.append(hOneElement, pElement);
     hOneElement.innerText = `title: ${element.title}`;
     pElement.innerText = `monthDuration: ${element.monthDuration}`;
     document.body.appendChild(divElement);
