@@ -219,6 +219,7 @@ let coursesArray = [
 ];
 for (const element of coursesArray) {
     let divElement = document.createElement('div');
+    divElement.classList.add('courses');
     for (const elementKey in element) {
         let divElementKey = document.createElement('div');
         divElement.appendChild(divElementKey);

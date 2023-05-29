@@ -1,0 +1,8 @@
+.member, .courses {
+    border: solid;
+    border-color: gray;
+    border-radius: 10px;
+    margin-bottom:5px;
+    padding-left: 10px;
+
+}
