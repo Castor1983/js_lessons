@@ -129,13 +129,14 @@ let simpsons = [
 ];
 for (const simpson of simpsons) {
     let divElement = document.createElement('div');
-    let ulElement = document.createElement('ul');
-    divElement.appendChild(ulElement);
+    let olElement = document.createElement('ol');
+    divElement.appendChild(olElement);
     divElement.classList.add('member');
     for (const info in simpson) {
-        let liElement = document.createElement('li');
-        ulElement.appendChild(liElement);
-        liElement.innerText = `${info} - ${simpson[info]}`;
+         let liElement = document.createElement('li');
+         olElement.appendChild(liElement);
+        liElement.innerText += `${info} - ${simpson[info]} `;
+
     }
 
     document.body.appendChild(divElement);
@@ -225,11 +226,11 @@ for (const element of coursesArray) {
         divElement.appendChild(divElementKey);
         if(Array.isArray(element[elementKey])) {
             divElementKey.innerText = `${elementKey} :`
-            let ulElementKey = document.createElement('ul');
-            divElement.appendChild(ulElementKey);
+            let olElementKey = document.createElement('ol');
+            divElement.appendChild(olElementKey);
             for (const elementKeyElement of element[elementKey]) {
                 let liElementKey = document.createElement('li');
-                ulElementKey.appendChild(liElementKey);
+                olElementKey.appendChild(liElementKey);
                 liElementKey.innerText = elementKeyElement;
             }
         } else {
