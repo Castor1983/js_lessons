@@ -130,16 +130,18 @@ let simpsons = [
 for (const simpson of simpsons) {
     let divElement = document.createElement('div');
     let olElement = document.createElement('ol');
+    let img = document.createElement('img')
+    img.src = simpson.photo;
+    divElement.appendChild(img);
+        document.body.appendChild(divElement);
     divElement.appendChild(olElement);
     divElement.classList.add('member');
     for (const info in simpson) {
-         let liElement = document.createElement('li');
-         olElement.appendChild(liElement);
-        liElement.innerText += `${info} - ${simpson[info]} `;
+        let liElement = document.createElement('li');
+        olElement.appendChild(liElement);
 
+        liElement.innerText = `${info} - ${simpson[info]} `;
     }
-
-    document.body.appendChild(divElement);
 }
 
 /* Цикл в циклі
