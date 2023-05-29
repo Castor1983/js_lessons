@@ -240,6 +240,14 @@ for (const element of coursesArray) {
 
 /*- Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript,
     зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".*/
+let htmlDivElement1 = document.createElement('div');
+htmlDivElement1.setAttribute('id', 'text')
+htmlDivElement1.innerText = 'Okten school';
+let htmlButtonElement = document.createElement('button');
+htmlButtonElement.setAttribute('id', 'btn');
+htmlButtonElement.innerText = 'Button';
+document.body.append(htmlDivElement1, htmlButtonElement);
+document.getElementById('btn').onclick = () =>  htmlDivElement1.remove();
 
 
 /*- створити інпут який приймає вік людини та кнопку яка підтверджує дію.
