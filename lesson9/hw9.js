@@ -133,7 +133,7 @@ for (const simpson of simpsons) {
     let img = document.createElement('img')
     img.src = simpson.photo;
     divElement.appendChild(img);
-        document.body.appendChild(divElement);
+    document.body.appendChild(divElement);
     divElement.appendChild(olElement);
     divElement.classList.add('member');
     for (const info in simpson) {
@@ -226,7 +226,7 @@ for (const element of coursesArray) {
     for (const elementKey in element) {
         let divElementKey = document.createElement('div');
         divElement.appendChild(divElementKey);
-        if(Array.isArray(element[elementKey])) {
+        if (Array.isArray(element[elementKey])) {
             divElementKey.innerText = `${elementKey} :`
             let olElementKey = document.createElement('ol');
             divElement.appendChild(olElementKey);
@@ -241,20 +241,3 @@ for (const element of coursesArray) {
     }
     document.body.appendChild(divElement);
 }
-
-/*- Створити довільний елемент з id = text та створити кнопку.Використовуючи JavaScript,
-    зробіть так, щоб при натисканні на кнопку зникав елемент з id="text".*/
-let htmlDivElement1 = document.createElement('div');
-htmlDivElement1.setAttribute('id', 'text')
-htmlDivElement1.innerText = 'Okten school';
-let htmlButtonElement = document.createElement('button');
-htmlButtonElement.setAttribute('id', 'btn');
-htmlButtonElement.innerText = 'Button';
-document.body.append(htmlDivElement1, htmlButtonElement);
-document.getElementById('btn').onclick = () =>  htmlDivElement1.remove();
-
-
-/*- створити інпут який приймає вік людини та кнопку яка підтверджує дію.
-    При натисканні на кнопку зчитати інформацію з інпуту та перевірити вік чи меньше він ніж 18,
-та повідомити про це користувача
-*/
