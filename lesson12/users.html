@@ -1,0 +1,56 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>users</title>
+    <style>
+
+        ul{
+
+            width: 300px;
+            border: solid;
+            border-radius: 10px;
+            border-width: 1px;
+            padding: 5px;
+            margin-top: 5px;
+        }
+    </style>
+</head>
+<body>
+<script>
+    //зробити файл users.html
+    // з ендпоінту http://jsonplaceholder.typicode.com/users отримати всіх користувачів
+
+    async function requestUsers() {
+        let getAllUsers = await fetch('https://jsonplaceholder.typicode.com/users')
+            .then(getAllUsers => getAllUsers.json());
+        for (const user of getAllUsers) {
+            // let htmlDivElement = document.createElement('div');
+            let usersUlElement = document.createElement('ul');
+            let userIdliElement = document.createElement('li');
+            userIdliElement.innerText = user.id;
+            let userNameliElement = document.createElement('li');
+            userNameliElement.innerText = user.name;
+            let userLinkliElement = document.createElement('li');
+            let link = document.createElement('a');
+
+            link.setAttribute('href', `user-details.html?id=${user.id}`);
+            link.innerText = `info about ${user.name}`;
+            userLinkliElement.appendChild(link);
+            usersUlElement.append(userIdliElement, userNameliElement, userLinkliElement);
+            //usersUlElement.appendChild(htmlDivElement);
+            document.body.appendChild(usersUlElement);
+        }
+
+    }
+    requestUsers();
+
+    // вивести їх id + name списком та додати посилання з href = user-details.html?id=XXX (замість ХХХ - айді юзера)
+    // при кліку на посилання перехід на відповідну сторінку, на якій буде вся інформація про користувача (всі 15 полів) отримана через додатковий запит (https://jsonplaceholder.typicode.com/users/XXX   ХХХ - айді користувача)
+
+</script>
+</body>
+</html>

@@ -1,0 +1,45 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport"
+          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>User info</title>
+</head>
+<body>
+<script>
+    let userDetails = async function () {
+
+        let userInfo = await fetch(`https://jsonplaceholder.typicode.com/users/`)
+            .then(userInfo => userInfo.json());
+        let infoUListElement = document.createElement('ul');
+        for (const userInfoKey in userInfo) {
+            if(typeof userInfo[userInfoKey] !== 'object') {
+                let userDetailsliElement = document.createElement('li');
+                userDetailsliElement.innerHTML = `${userInfoKey}: ${userInfo[userInfoKey]}`;
+                infoUListElement.appendChild(userDetailsliElement);
+            } else {
+                for (const key in userInfo[userInfoKey]) {
+                    if(typeof userInfo[userInfoKey][key] !== 'object') {
+                        let userDetailsliElement = document.createElement('li');
+                        userDetailsliElement.innerHTML = `${key}: ${userInfo[userInfoKey][key]}`;
+                        infoUListElement.appendChild(userDetailsliElement);
+                    } else {
+                        for (const field in userInfo[userInfoKey][key]) {
+                            let userDetailsliElement = document.createElement('li');
+                            userDetailsliElement.innerHTML = `${field}: ${userInfo[userInfoKey][key][field]}`;
+                            infoUListElement.appendChild(userDetailsliElement);
+                        }
+                    }
+                }
+
+            }
+        }
+        document.body.appendChild(infoUListElement);
+    }
+    userDetails();
+</script>
+
+</body>
+</html>
