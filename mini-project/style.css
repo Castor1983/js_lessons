@@ -1,0 +1,96 @@
+@import url('https://fonts.googleapis.com/css2?family=Righteous&display=swap');
+
+/*
+Стилизація проєкта -
+index.html - всі блоки з user - по 2 в рядок. кнопки/аосилвння розташувати під інформацією про user.
+    user-details.html - блок з інфою про user зверху сторінки. Кнопка нижчє, на 90% ширини сторінки, по центру.
+    блоки з короткою іфною про post - в ряд по 5 .
+    post-details.html - блок з інфою про пост зверху. Коментарі - по 4 в ряд.
+    Всі елементи котрі характеризують users, posts, comments візуалізувати, так,
+    щоб було видно що це блоки (дати фон. марджини і тд)*/
+
+body {
+    margin: 0;
+    display: flex;
+    width: 100vw;
+    height: 100vh;
+}
+
+.background {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    justify-content: center;
+    width: 100vw;
+    height: 100vh;
+    background-image: url("background.jpg");
+
+}
+
+.headline {
+    display: flex;
+    width: 100vw;
+    justify-content: center;
+}
+
+.line {
+    color: #1631e2;
+    font-family: 'Righteous', cursive;
+    font-size: xxx-large;
+
+}
+
+.wrap_list {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    place-items: center;
+    justify-content: center;
+    width: 100vw;
+    font-family: 'Righteous', cursive;
+    color: #1631e2;
+
+}
+
+.wrap_details {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    width: 50vw;
+    height: 80vh;
+    border: solid;
+    border-color: blue;
+    border-width: 1px;
+    font-family: 'Righteous', cursive;
+    color: #1631e2;
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: yellow;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+
+}
+
+.btn_info {
+    width: 40%;
+    background-color: #1631e2;
+    color: #fff;
+    border: none;
+    border-radius: 10px;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+    font-family: 'Righteous', cursive;
+}
+
+.user {
+    display: grid;
+    grid-template-columns: 1fr;
+    place-items: center;
+    width: 300px;
+    height: 80px;
+    border: solid;
+    border-width: 1px;
+    border-radius: 10px;
+    margin: 10px;
+    background-color: yellow;
+    box-shadow: 0px 0px 2px 2px rgb(0, 0, 0);
+}
