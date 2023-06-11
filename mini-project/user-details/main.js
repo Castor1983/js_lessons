@@ -8,19 +8,44 @@
 const userId = new URL(location.href).searchParams.get('userId');
 
 fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
-.then((res) => res.json())
-.then((user) => {
-    const block = document.getElementsByClassName('wrap_details')[0];
-    const ul = document.createElement('ul');
-    recursiveBuild(user, ul);
-    block.appendChild(ul);
-    const button = document.createElement('button');
-    button.setAttribute('class', 'btn_info')
-    button.innerText = 'post of current user';
-    block.appendChild(button);
-    button.onclick = () => {
-        location.href = `../posts-list/index.html?userId=${user.id}`;
-    }
+    .then((res) => res.json())
+    .then((user) => {
+        const block = document.getElementsByClassName('user_details')[0];
+        const h1 = document.getElementsByClassName('line')[0];
+        h1.innerHTML = `User ${user.username} info`;
+        const background = document.getElementsByClassName('background')[0];
+        const ul = document.createElement('ul');
+        recursiveBuild(user, ul);
+        block.appendChild(ul);
+        const btn = document.createElement('button');
+        btn.setAttribute('class', 'btn_info')
+        btn.innerText = 'post of current user';
+        background.appendChild(btn);
+        btn.addEventListener('click', function() {
+            fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
+                .then((res) => res.json())
+                .then((posts) => {
+                    const post_list = document.createElement('div');
+                    post_list.setAttribute('class', 'posts_list');
+                    for (const post of posts) {
+
+                        const post_block = document.createElement('div');
+                        post_block.setAttribute('class', 'post');
+                        post_block.innerText = `title: ${post.title}`;
+                        post_list.appendChild(post_block);
+
+                        const button = document.createElement('button');
+                        button.setAttribute('class', 'btn')
+                        button.innerText = 'more';
+                        post_block.appendChild(button);
+
+                        button.onclick = () => {
+                            location.href = `../post-details/index.html?userId=${userId}&postId=${post.id}`;
+                        }
+                    }
+                    background.appendChild(post_list);
+                })
+        }, {once: true});
     });
 
 function liCreator(key, value, parent) {
@@ -29,6 +54,7 @@ function liCreator(key, value, parent) {
     parent.appendChild(li);
 
 }
+
 function ulBuilder(key, object, parent) {
     const li = document.createElement('li');
     const ul = document.createElement('ul');

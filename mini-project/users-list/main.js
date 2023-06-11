@@ -6,7 +6,7 @@
 fetch('http://jsonplaceholder.typicode.com/users')
     .then((res) => res.json())
     .then((users) => {
-        const block = document.getElementsByClassName('wrap_list')[0];
+        const block = document.getElementsByClassName('user_list')[0];
         for (const user of users) {
 
             const user_block = document.createElement('div');
@@ -15,7 +15,7 @@ fetch('http://jsonplaceholder.typicode.com/users')
             block.appendChild(user_block);
 
             const button = document.createElement('button');
-            button.setAttribute('class', 'btn_info')
+            button.setAttribute('class', 'btn')
             button.innerText = 'more info';
             user_block.appendChild(button);
 
