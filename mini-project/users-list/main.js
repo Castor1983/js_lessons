@@ -15,7 +15,7 @@ fetch('http://jsonplaceholder.typicode.com/users')
             block.appendChild(user_block);
 
             const button = document.createElement('button');
-            button.setAttribute('class', 'btn')
+            button.setAttribute('class', 'btn');
             button.innerText = 'more info';
             user_block.appendChild(button);
 

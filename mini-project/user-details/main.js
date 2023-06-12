@@ -18,7 +18,7 @@ fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
         recursiveBuild(user, ul);
         block.appendChild(ul);
         const btn = document.createElement('button');
-        btn.setAttribute('class', 'btn_info')
+        btn.setAttribute('class', 'btn_info');
         btn.innerText = 'post of current user';
         background.appendChild(btn);
         btn.addEventListener('click', function() {
