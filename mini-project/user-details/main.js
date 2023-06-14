@@ -30,7 +30,7 @@ fetch(`http://jsonplaceholder.typicode.com/users/${userId}`)
                     for (const post of posts) {
 
                         const post_block = document.createElement('div');
-                        post_block.setAttribute('class', 'post');
+                        post_block.setAttribute('class', 'post_title');
                         post_block.innerText = `title: ${post.title}`;
                         post_list.appendChild(post_block);
 

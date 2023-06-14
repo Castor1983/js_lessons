@@ -5,19 +5,17 @@
 (ендпоінт  - https://jsonplaceholder.typicode.com/posts/POST_ID/comments)*/
 const postId = new URL(location.href).searchParams.get('postId');
 const userId = new URL(location.href).searchParams.get('userId');
-
+const background = document.getElementsByClassName('background')[0];
 const block = document.getElementsByClassName('post_details')[0];
 const h1 = document.getElementsByClassName('line')[0];
 h1.innerHTML = `Post ${postId} info`;
 fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
     .then((res) => res.json())
     .then((posts) => {
-        const post_block = document.createElement('div');
-        post_block.setAttribute('class', 'post_info');
         for (const post of posts) {
             if (post.id == postId) {
                 const ul = document.createElement('ul');
-                post_block.appendChild(ul);
+                block.appendChild(ul);
                 for (const postKey in post) {
                     const li = document.createElement('li');
                     ul.appendChild(li);
@@ -26,7 +24,6 @@ fetch(`https://jsonplaceholder.typicode.com/users/${userId}/posts`)
             }
 
         }
-        block.appendChild(post_block);
     });
 
 fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
@@ -47,5 +44,5 @@ fetch(`https://jsonplaceholder.typicode.com/posts/${postId}/comments`)
 
 
         }
-        block.appendChild(comments_block);
+        background.appendChild(comments_block);
     });
